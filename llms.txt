@@ -1,0 +1,29 @@
+# SEPA-Lastschrift für Vereine
+
+> Kostenloses Browser-Werkzeug: Mitgliedsbeiträge per SEPA-Lastschrift einziehen. Excel/CSV-Import, IBAN- und Mandatsprüfung, Erzeugung einer bankfähigen pain.008.001.08-Datei (ISO 20022), Prenotification-Text und CAMT.053-Kontenabgleich. Läuft vollständig im Browser, keine Datenübertragung. Zielgruppe: deutsche Vereine, Kassenwarte, Vermieter.
+
+## Werkzeug
+- [SEPA-Rechner für Vereine](https://vanitas50.github.io/sepa-verein/): Excel/CSV hochladen, SEPA-Datei + Kontenabgleich erzeugen.
+
+## Anleitungen
+- [SEPA-Lastschrift für Vereine](https://vanitas50.github.io/sepa-verein/sepa-lastschrift-verein.html)
+- [Gläubiger-ID beantragen](https://vanitas50.github.io/sepa-verein/glaeubiger-id.html)
+- [SEPA-Ersteinzug (FRST)](https://vanitas50.github.io/sepa-verein/sepa-erstlastschrift.html)
+- [Prenotification: Frist & Vorlage](https://vanitas50.github.io/sepa-verein/prenotification-vorlage.html)
+- [Mandat widerrufen](https://vanitas50.github.io/sepa-verein/mandat-widerrufen.html)
+- [Lastschrift-Rückgabe & Rückbuchung](https://vanitas50.github.io/sepa-verein/lastschrift-rueckgabe.html)
+- [CAMT.053 verstehen](https://vanitas50.github.io/sepa-verein/camt053-verstehen.html)
+- [Online-Banking: SEPA-Datei einreichen](https://vanitas50.github.io/sepa-verein/sepa-lastschrift-online-banking.html)
+- [Mahnung im Verein](https://vanitas50.github.io/sepa-verein/mahnung-verein.html)
+- [Kassenbericht im Verein](https://vanitas50.github.io/sepa-verein/kassenbericht-verein.html)
+- [Zuwendungsbestätigung](https://vanitas50.github.io/sepa-verein/zuwendungsbestaetigung.html)
+- [SEPA-Firmenlastschrift B2B](https://vanitas50.github.io/sepa-verein/sepa-b2b.html)
+
+## Nach Zielgruppe
+- [Sportverein](https://vanitas50.github.io/sepa-verein/sepa-lastschrift-sportverein.html) · [Musikverein](https://vanitas50.github.io/sepa-verein/sepa-lastschrift-musikverein.html) · [Schützenverein](https://vanitas50.github.io/sepa-verein/sepa-lastschrift-schuetzenverein.html) · [Karnevalsverein](https://vanitas50.github.io/sepa-verein/sepa-lastschrift-karnevalsverein.html) · [Kleingartenverein](https://vanitas50.github.io/sepa-verein/sepa-lastschrift-kleingartenverein.html) · [Förderverein](https://vanitas50.github.io/sepa-verein/sepa-lastschrift-foerderverein.html) · [Feuerwehrverein](https://vanitas50.github.io/sepa-verein/sepa-lastschrift-feuerwehr.html) · [Vermieter](https://vanitas50.github.io/sepa-verein/sepa-lastschrift-vermieter.html)
+
+## Vorlagen (kostenlos)
+- [Vorlagen-Hub](https://vanitas50.github.io/sepa-verein/vorlagen/) · [SEPA-Mandat](https://vanitas50.github.io/sepa-verein/vorlagen/mandat.html) · [Beitrittserklärung](https://vanitas50.github.io/sepa-verein/vorlagen/beitrittserklaerung.html) · [Beitragsbescheid](https://vanitas50.github.io/sepa-verein/vorlagen/beitragsbescheid.html) · [Zahlungserinnerung](https://vanitas50.github.io/sepa-verein/vorlagen/zahlungserinnerung.html)
+
+## Optional
+- [Datenschutz](https://vanitas50.github.io/sepa-verein/datenschutz.html)
