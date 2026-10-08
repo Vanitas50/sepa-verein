@@ -22,6 +22,10 @@
 <meta name="theme-color" content="#0f172a">
 <link rel="icon" href="./favicon.png">
 <link rel="apple-touch-icon" href="./favicon.png">
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="SEPA Verein">
+<meta name="mobile-web-app-capable" content="yes">
 <style>
   :root { --bg:#0f172a; --card:#fff; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0;
           --brand:#0d6efd; --ok:#16a34a; --err:#dc2626; --soft:#f8fafc; }
@@ -116,9 +120,15 @@
       <div><label>Vereins-BIC</label><input id="cfgBic" placeholder="GENODEF1XXX"></div>
       <div><label>Fälligkeit (Einzugsdatum, mind. 14 Tage vorher)</label><input id="cfgDate" type="date"><p class="muted" id="dateHint" style="margin:4px 0 0"></p></div>
       <div><label>Lastschriftart</label>
-        <select id="cfgSeq"><option value="RCUR">Wiederkehrend (RCUR)</option><option value="FRST">Ersteinzug (FRST)</option><option value="OOFF">Einmalig (OOFF)</option></select>
+        <select id="cfgSeq"><option value="RCUR">Wiederkehrend (RCUR)</option><option value="FRST">Ersteinzug (FRST)</option><option value="FNAL">Letzter Einzug (FNAL)</option><option value="OOFF">Einmalig (OOFF)</option></select>
       </div>
     </div>
+    <details style="margin-top:12px">
+      <summary class="muted">Erweitert (Lastschriftverfahren)</summary>
+      <label style="margin-top:8px">Verfahren</label>
+      <select id="cfgScheme" style="max-width:320px"><option value="CORE">Basislastschrift (CORE)</option><option value="B2B">Firmenlastschrift (B2B)</option></select>
+      <p class="muted" style="margin:6px 0 0">CORE für Mitglieder (Verbraucher); B2B nur, wenn der Zahlungspflichtige ein Unternehmen ist.</p>
+    </details>
     <p class="muted" style="margin:12px 0 0">Gläubiger-ID kostenlos bei der Deutschen Bundesbank beantragen: <span class="pill">glaeubiger-id.bundesbank.de</span></p>
   </div>
 
@@ -339,7 +349,7 @@ function run() {
     $("runHint").textContent = "Keine bekannten Spalten erkannt – Kopfzeile prüfen (IBAN, Beitrag, Mandatsreferenz …).";
     return;
   }
-  const opts = { collectionDate, seq, scheme: "CORE", msgId: null };
+  const opts = { collectionDate, seq, scheme: ($("cfgScheme") ? $("cfgScheme").value : "CORE"), msgId: null };
   const { members, errors } = s.prepare(parsed.rows, opts);
   lastMembers = members;
   if (!members.length) {
@@ -469,6 +479,10 @@ $("camtFile").addEventListener("change", async (e) => {
     $("abgleichResult").innerHTML = "<p class='errors'>Datei nicht lesbar: " + err.message + "</p>";
   }
 });
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => { navigator.serviceWorker.register("./sw.js").catch(() => {}); });
+}
 </script>
 </body>
 </html>

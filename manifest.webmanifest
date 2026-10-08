@@ -1,0 +1,15 @@
+{
+  "name": "SEPA-Lastschrift für Vereine",
+  "short_name": "SEPA Verein",
+  "description": "Mitgliedsbeiträge per SEPA-Lastschrift einziehen: Excel rein, pain.008-Datei raus. Läuft offline im Browser.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "lang": "de",
+  "icons": [
+    { "src": "./favicon.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./favicon.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
