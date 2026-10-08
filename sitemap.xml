@@ -76,6 +76,26 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://vanitas50.github.io/sepa-verein/vorlagen/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vanitas50.github.io/sepa-verein/vorlagen/beitrittserklaerung.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://vanitas50.github.io/sepa-verein/vorlagen/beitragsbescheid.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://vanitas50.github.io/sepa-verein/vorlagen/zahlungserinnerung.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://vanitas50.github.io/sepa-verein/datenschutz.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

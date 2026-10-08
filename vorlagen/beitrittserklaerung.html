@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beitrittserklärung Verein – kostenlose Vorlage</title>
+<meta name="description" content="Kostenlose Vorlage für die Beitrittserklärung im Verein inkl. SEPA-Lastschriftmandat – zum Ausdrucken.">
+<link rel="canonical" href="https://vanitas50.github.io/sepa-verein/vorlagen/beitrittserklaerung.html">
+<style>
+  :root { --ink:#0f172a; --line:#cbd5e1; --muted:#64748b; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; color:var(--ink); background:#eef2f7; line-height:1.5; }
+  .bar { background:#0f172a; } .bar .wrap { max-width:820px; margin:0 auto; padding:14px 20px; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+  .bar a { color:#93c5fd; text-decoration:none; font-size:.9rem; } .bar button { background:#0d6efd; color:#fff; border:0; border-radius:8px; padding:9px 16px; font:inherit; font-weight:600; cursor:pointer; }
+  .win { max-width:820px; margin:20px auto; padding:0 20px; } .sheet { background:#fff; padding:36px 40px; border:1px solid var(--line); border-radius:8px; }
+  h1 { font-size:1.25rem; margin:0 0 4px; } .sub { color:var(--muted); font-size:.85rem; margin:0 0 22px; }
+  fieldset { border:1px solid var(--line); border-radius:8px; margin:0 0 16px; padding:14px 16px; } legend { font-weight:700; font-size:.85rem; padding:0 6px; }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:12px 22px; } .f span { display:block; color:var(--muted); font-size:.78rem; } .line { border-bottom:1px dotted #94a3b8; min-height:22px; }
+  .mandat { font-size:.85rem; background:#f8fafc; border:1px solid var(--line); border-radius:8px; padding:12px 14px; margin:0 0 16px; }
+  .sig { display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:26px; } .sig .line { border-bottom:1px solid #475569; height:34px; } .sig .lbl { font-size:.78rem; color:var(--muted); }
+  .hint { max-width:820px; margin:0 auto 30px; padding:0 20px; color:var(--muted); font-size:.85rem; }
+  @media print { body{background:#fff;} .bar,.hint,.noprint{display:none!important;} .win{margin:0;padding:0;max-width:none;} .sheet{border:0;padding:0;} @page{size:A4;margin:16mm;} }
+  @media (max-width:640px){ .grid,.sig{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<div class="bar"><div class="wrap"><a href="./index.html">← Vorlagen</a><button class="noprint" onclick="window.print()">Drucken / als PDF</button></div></div>
+<div class="win"><div class="sheet">
+  <h1>Beitrittserklärung</h1>
+  <p class="sub">Mitgliedschaft im Verein – inkl. SEPA-Lastschriftmandat für den Beitragseinzug.</p>
+
+  <fieldset><legend>Verein</legend>
+    <div class="grid">
+      <div class="f"><span>Name des Vereins</span><div class="line"></div></div>
+      <div class="f"><span>Gläubiger-ID</span><div class="line"></div></div>
+    </div>
+  </fieldset>
+
+  <fieldset><legend>Neues Mitglied</legend>
+    <div class="grid">
+      <div class="f"><span>Name, Vorname</span><div class="line"></div></div>
+      <div class="f"><span>Geburtsdatum</span><div class="line"></div></div>
+      <div class="f"><span>Anschrift</span><div class="line"></div></div>
+      <div class="f"><span>E-Mail / Telefon</span><div class="line"></div></div>
+      <div class="f"><span>Mitgliedsart</span><div class="line"></div></div>
+      <div class="f"><span>Beitrag (EUR)</span><div class="line"></div></div>
+    </div>
+  </fieldset>
+
+  <div class="mandat">
+    Ich beantrage die Mitgliedschaft und ermächtige <b>[Verein]</b>, den Mitgliedsbeitrag von meinem Konto
+    mittels Lastschrift einzuziehen (Gläubiger-ID siehe oben, Mandatsreferenz = Mitgliedsnummer).
+    Zugleich weise ich mein Kreditinstitut an, die Lastschriften einzulösen. Hinweis: Ich kann innerhalb von
+    acht Wochen, beginnend mit dem Belastungsdatum, die Erstattung verlangen.
+  </div>
+
+  <fieldset><legend>Bankverbindung (SEPA-Lastschrift)</legend>
+    <div class="grid">
+      <div class="f"><span>IBAN</span><div class="line"></div></div>
+      <div class="f"><span>BIC (falls nötig)</span><div class="line"></div></div>
+    </div>
+  </fieldset>
+
+  <div class="sig"><div><div class="line"></div><div class="lbl">Datum, Ort</div></div><div><div class="line"></div><div class="lbl">Unterschrift</div></div></div>
+</div></div>
+<p class="hint">Unverbindliche Vorlage, keine Rechtsberatung. Weiter: <a href="../index.html">SEPA-Rechner für Vereine</a> · <a href="./beitragsbescheid.html">Beitragsbescheid</a> · <a href="./zahlungserinnerung.html">Zahlungserinnerung</a></p>
+</body>
+</html>
