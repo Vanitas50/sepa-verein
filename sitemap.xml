@@ -116,6 +116,21 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://vanitas50.github.io/sepa-verein/sepa-lastschrift-foerderverein.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://vanitas50.github.io/sepa-verein/sepa-lastschrift-feuerwehr.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://vanitas50.github.io/sepa-verein/zuwendungsbestaetigung.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://vanitas50.github.io/sepa-verein/datenschutz.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
