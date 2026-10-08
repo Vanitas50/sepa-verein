@@ -24,6 +24,12 @@
 - [SEPA-Firmenlastschrift B2B](https://vanitas50.github.io/sepa-verein/sepa-b2b.html)
 - [SEPA-Fristen (D-5, D-2, 14 Tage)](https://vanitas50.github.io/sepa-verein/sepa-fristen.html)
 - [Familienmitgliedschaft & Mandat](https://vanitas50.github.io/sepa-verein/familien-mandat.html)
+- [Vereinsverwaltung mit Excel](https://vanitas50.github.io/sepa-verein/vereinsverwaltung-excel.html)
+- [Kassenprüfung](https://vanitas50.github.io/sepa-verein/kassenpruefung-verein.html)
+- [Vorstandswechsel-Checkliste](https://vanitas50.github.io/sepa-verein/vorstandswechsel-checkliste.html)
+- [Übungsleiter-/Ehrenamtspauschale](https://vanitas50.github.io/sepa-verein/ehrenamtspauschale-uebungsleiter.html)
+- [Mitgliedsbeitrag & Steuer](https://vanitas50.github.io/sepa-verein/mitgliedsbeitrag-steuer.html)
+- [Satzung](https://vanitas50.github.io/sepa-verein/satzung-verein.html) · [Verein gründen](https://vanitas50.github.io/sepa-verein/verein-gruenden.html) · [Datenschutz im Verein](https://vanitas50.github.io/sepa-verein/datenschutz-im-verein.html)
 
 ## Nach Zielgruppe
 - [Sportverein](https://vanitas50.github.io/sepa-verein/sepa-lastschrift-sportverein.html) · [Musikverein](https://vanitas50.github.io/sepa-verein/sepa-lastschrift-musikverein.html) · [Schützenverein](https://vanitas50.github.io/sepa-verein/sepa-lastschrift-schuetzenverein.html) · [Karnevalsverein](https://vanitas50.github.io/sepa-verein/sepa-lastschrift-karnevalsverein.html) · [Kleingartenverein](https://vanitas50.github.io/sepa-verein/sepa-lastschrift-kleingartenverein.html) · [Förderverein](https://vanitas50.github.io/sepa-verein/sepa-lastschrift-foerderverein.html) · [Feuerwehrverein](https://vanitas50.github.io/sepa-verein/sepa-lastschrift-feuerwehr.html) · [Vermieter](https://vanitas50.github.io/sepa-verein/sepa-lastschrift-vermieter.html) · [Angelverein](https://vanitas50.github.io/sepa-verein/sepa-lastschrift-angelverein.html) · [Reitverein](https://vanitas50.github.io/sepa-verein/sepa-lastschrift-reitverein.html) · [gGmbH/gemeinnützig](https://vanitas50.github.io/sepa-verein/gemeinnuetzige-organisation.html)

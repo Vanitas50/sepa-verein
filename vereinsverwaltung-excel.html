@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vereinsverwaltung mit Excel – geht das? (Grenzen &amp; Tipps)</title>
+<meta name="description" content="Vereinsverwaltung mit Excel: was gut funktioniert, wo die Grenzen liegen (SEPA-Datei, Mandate, Kontenabgleich) und wie Sie Excel mit einem SEPA-Tool verbinden.">
+<link rel="canonical" href="https://vanitas50.github.io/sepa-verein/vereinsverwaltung-excel.html">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vereinsverwaltung mit Excel – geht das?">
+<meta property="og:description" content="Was funktioniert, wo die Grenzen liegen – und wie Excel + SEPA-Tool zusammenspielen.">
+<meta property="og:url" content="https://vanitas50.github.io/sepa-verein/vereinsverwaltung-excel.html">
+<meta property="og:image" content="https://vanitas50.github.io/sepa-verein/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root { --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --brand:#0d6efd; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; color:var(--ink); background:#f1f5f9; line-height:1.65; }
+  header { background:#0f172a; color:#fff; padding:28px 20px; } .wrap { max-width:760px; margin:0 auto; }
+  header a { color:#93c5fd; text-decoration:none; font-size:.9rem; }
+  main { padding:28px 20px 60px; } article { background:#fff; border:1px solid var(--line); border-radius:14px; padding:28px; }
+  h1 { font-size:1.6rem; margin:.2rem 0 1rem; } h2 { font-size:1.13rem; margin:1.7rem 0 .4rem; }
+  .cta { display:block; background:var(--brand); color:#fff; text-align:center; padding:14px; border-radius:10px; text-decoration:none; font-weight:600; margin:26px 0 6px; }
+  .muted { color:var(--muted); font-size:.85rem; } ul { padding-left:1.2rem; }
+</style>
+</head>
+<body>
+<header><div class="wrap"><a href="./index.html">← SEPA-Rechner für Vereine</a></div></header>
+<main class="wrap">
+<article>
+  <h1>Vereinsverwaltung mit Excel – geht das?</h1>
+  <p>Viele Vereine führen Mitgliederliste, Beiträge und Kasse in Excel. Das ist verständlich – birgt aber Grenzen. Hier steht, was gut klappt und wie Sie Excel mit einem SEPA-Werkzeug verbinden.</p>
+
+  <h2>Was mit Excel gut funktioniert</h2>
+  <ul>
+    <li>Mitgliederliste pflegen (Name, Adresse, Beitrag, Mandatsreferenz).</li>
+    <li>Beiträge je Mitglied/Beitragsart berechnen.</li>
+    <li>Übersichten und Auswertungen (Abteilungen, Altersstruktur).</li>
+  </ul>
+
+  <h2>Wo die Grenzen liegen</h2>
+  <ul>
+    <li><b>Keine bankfähige SEPA-Datei:</b> die Bank braucht XML (pain.008), nicht Excel.</li>
+    <li><b>Mandate/Referenzen</b> gehen in mehreren Dateien leicht durcheinander.</li>
+    <li><b>Kein Kontenabgleich:</b> wer bezahlt hat, muss oft händisch gesucht werden.</li>
+    <li><b>Vorstandswechsel:</b> „welche Datei ist aktuell?“ ist ein typisches Problem.</li>
+  </ul>
+
+  <h2>Der pragmatische Weg: Excel + SEPA-Tool</h2>
+  <p>Pflegen Sie die Mitglieder weiter in Excel/CSV. Für den Einzug laden Sie die Liste in den <a href="./index.html">SEPA-Rechner</a>: Er prüft IBAN/Mandate, erzeugt die pain.008-Datei und gleicht später den <a href="./camt053-verstehen.html">Kontoauszug</a> ab. So bleibt Excel Ihre Datenbasis – nur der Bank-Teil wird sauber automatisiert.</p>
+
+  <h2>Häufige Frage</h2>
+  <p><b>Brauche ich eine Vereinssoftware?</b> Nicht zwingend. Für viele kleine Vereine reicht Excel + ein SEPA-Tool.</p>
+
+  <a class="cta" href="./index.html">Excel-Liste hochladen → SEPA-Datei kostenlos erzeugen →</a>
+  <p class="muted">Vorlage: <a href="./vorlagen/mitgliederliste.html">Mitgliederliste (CSV)</a>. Weiterlesen: <a href="./mitgliedsbeitraege-einziehen.html">Beiträge einziehen</a> · <a href="./datenschutz.html">Datenschutz</a></p>
+</article>
+</main>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+ {"@type":"Question","name":"Kann man einen Verein komplett mit Excel verwalten?","acceptedAnswer":{"@type":"Answer","text":"Die Mitgliederliste ja, aber für den SEPA-Einzug braucht die Bank eine XML-Datei (pain.008). Dafür eignet sich ein kostenloses SEPA-Tool kombiniert mit Excel."}}
+]}
+</script>
+</body>
+</html>

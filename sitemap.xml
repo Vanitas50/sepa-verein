@@ -215,6 +215,16 @@
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url><loc>https://vanitas50.github.io/sepa-verein/vereinsverwaltung-excel.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vanitas50.github.io/sepa-verein/kassenpruefung-verein.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vanitas50.github.io/sepa-verein/vorstandswechsel-checkliste.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vanitas50.github.io/sepa-verein/ehrenamtspauschale-uebungsleiter.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vanitas50.github.io/sepa-verein/mitgliedsbeitrag-steuer.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vanitas50.github.io/sepa-verein/satzung-verein.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vanitas50.github.io/sepa-verein/verein-gruenden.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vanitas50.github.io/sepa-verein/datenschutz-im-verein.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vanitas50.github.io/sepa-verein/sepa-lastschrift-schachverein.html</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://vanitas50.github.io/sepa-verein/sepa-lastschrift-heimatverein.html</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
   <url>
     <loc>https://vanitas50.github.io/sepa-verein/datenschutz.html</loc>
     <changefreq>yearly</changefreq>
