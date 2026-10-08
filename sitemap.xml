@@ -26,6 +26,31 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://vanitas50.github.io/sepa-verein/sepa-erstlastschrift.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vanitas50.github.io/sepa-verein/camt053-verstehen.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vanitas50.github.io/sepa-verein/lastschrift-rueckgabe.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vanitas50.github.io/sepa-verein/mandat-widerrufen.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vanitas50.github.io/sepa-verein/sepa-lastschrift-vermieter.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://vanitas50.github.io/sepa-verein/datenschutz.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

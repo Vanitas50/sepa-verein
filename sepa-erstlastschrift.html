@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEPA-Ersteinzug (FRST) im Verein richtig einziehen</title>
+<meta name="description" content="SEPA-Ersteinzug im Verein: FRST vs. RCUR, Mandatsdatum, Vorlaufzeiten und typische Fehler beim ersten Lastschrifteinzug.">
+<link rel="canonical" href="https://vanitas50.github.io/sepa-verein/sepa-erstlastschrift.html">
+<meta name="robots" content="index,follow">
+<style>
+  :root { --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --brand:#0d6efd; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; color:var(--ink); background:#f1f5f9; line-height:1.65; }
+  header { background:#0f172a; color:#fff; padding:28px 20px; }
+  .wrap { max-width:760px; margin:0 auto; }
+  header a { color:#93c5fd; text-decoration:none; font-size:.9rem; }
+  main { padding:28px 20px 60px; }
+  article { background:#fff; border:1px solid var(--line); border-radius:14px; padding:28px; }
+  h1 { font-size:1.6rem; margin:.2rem 0 1rem; }
+  h2 { font-size:1.13rem; margin:1.7rem 0 .4rem; }
+  .pill { display:inline-block; background:#f8fafc; border:1px solid var(--line); border-radius:6px; padding:1px 8px; font-family:ui-monospace,monospace; font-size:.85rem; }
+  .cta { display:block; background:var(--brand); color:#fff; text-align:center; padding:14px; border-radius:10px; text-decoration:none; font-weight:600; margin:26px 0 6px; }
+  .muted { color:var(--muted); font-size:.85rem; }
+  ol,ul { padding-left:1.2rem; }
+</style>
+</head>
+<body>
+<header><div class="wrap"><a href="./index.html">← SEPA-Rechner für Vereine</a></div></header>
+<main class="wrap">
+<article>
+  <h1>SEPA-Ersteinzug (FRST) im Verein richtig einziehen</h1>
+  <p>Der erste Einzug eines neuen Mandats wird in der SEPA-Datei als <span class="pill">FRST</span> (First) gekennzeichnet. Danach folgen <span class="pill">RCUR</span>-Einzüge (Recurring). Wer das verwechselt, riskiert Rückläufer.</p>
+
+  <h2>Die Sequenztypen</h2>
+  <ul>
+    <li><span class="pill">FRST</span> – erster Einzug eines Mandats</li>
+    <li><span class="pill">RCUR</span> – jeder weitere Einzug</li>
+    <li><span class="pill">FNAL</span> – letzter Einzug vor Ablauf/Kündigung des Mandats</li>
+    <li><span class="pill">OOFF</span> – einmalige Zahlung</li>
+  </ul>
+  <p>Für Vereinsbeiträge ist praktisch immer die SEPA-Basislastschrift (CORE) richtig – Mitglieder sind Verbraucher.</p>
+
+  <h2>Was beim Ersteinzug wichtig ist</h2>
+  <ul>
+    <li>Das <b>Mandatsdatum</b> (Datum der Unterschrift) muss angegeben werden und vor dem Einzugsdatum liegen.</li>
+    <li>Der Ersteinzug hat je nach Bank <b>längere Vorlaufzeiten</b> als Folgeeinzüge – Einzugstermin großzügig setzen.</li>
+    <li>Der Einzug muss mindestens <b>14 Tage vorher</b> angekündigt werden (<a href="./prenotification-vorlage.html">Prenotification</a>).</li>
+  </ul>
+
+  <h2>Häufige Fehler</h2>
+  <ul>
+    <li>Alles als RCUR einziehen, obwohl noch kein Ersteinzug erfolgte.</li>
+    <li>Mandatsdatum fehlt oder liegt nach dem Einzugsdatum.</li>
+    <li>Frist zur Ankündigung nicht eingehalten.</li>
+  </ul>
+
+  <h2>Im Werkzeug umsetzen</h2>
+  <p>In der Mitgliederliste die Spalte <span class="pill">Erstmalig</span> auf <b>ja</b> setzen – das Werkzeug gruppiert FRST- und RCUR-Einzüge automatisch in getrennte Blöcke der <a href="./index.html">SEPA-Datei</a>.</p>
+
+  <a class="cta" href="./index.html">Mitgliederliste hochladen → SEPA-Datei kostenlos erzeugen →</a>
+  <p class="muted">Weiterlesen: <a href="./sepa-lastschrift-verein.html">SEPA-Lastschrift für Vereine</a> · <a href="./mandat-widerrufen.html">Mandat widerrufen</a> · <a href="./lastschrift-rueckgabe.html">Rückgabe &amp; Rückbuchung</a> · <a href="./datenschutz.html">Datenschutz</a></p>
+</article>
+</main>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CAMT.053 verstehen: Kontoauszug als XML-Datei (für Vereine)</title>
+<meta name="description" content="Was ist CAMT.053? Kontoauszug im XML-Format aus dem Online-Banking verstehen und für den Beitragsabgleich im Verein nutzen.">
+<link rel="canonical" href="https://vanitas50.github.io/sepa-verein/camt053-verstehen.html">
+<meta name="robots" content="index,follow">
+<style>
+  :root { --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --brand:#0d6efd; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; color:var(--ink); background:#f1f5f9; line-height:1.65; }
+  header { background:#0f172a; color:#fff; padding:28px 20px; }
+  .wrap { max-width:760px; margin:0 auto; }
+  header a { color:#93c5fd; text-decoration:none; font-size:.9rem; }
+  main { padding:28px 20px 60px; }
+  article { background:#fff; border:1px solid var(--line); border-radius:14px; padding:28px; }
+  h1 { font-size:1.6rem; margin:.2rem 0 1rem; }
+  h2 { font-size:1.13rem; margin:1.7rem 0 .4rem; }
+  .pill { display:inline-block; background:#f8fafc; border:1px solid var(--line); border-radius:6px; padding:1px 8px; font-family:ui-monospace,monospace; font-size:.85rem; }
+  .cta { display:block; background:var(--brand); color:#fff; text-align:center; padding:14px; border-radius:10px; text-decoration:none; font-weight:600; margin:26px 0 6px; }
+  .muted { color:var(--muted); font-size:.85rem; }
+</style>
+</head>
+<body>
+<header><div class="wrap"><a href="./index.html">← SEPA-Rechner für Vereine</a></div></header>
+<main class="wrap">
+<article>
+  <h1>CAMT.053 verstehen: der Kontoauszug als XML</h1>
+  <p>Viele Vereine fragen sich, wer seine Beiträge schon gezahlt hat. Statt die Beträge händisch im Online-Banking zu suchen, lässt sich der Kontoauszug als <b>CAMT.053</b>-Datei herunterladen und automatisch mit der Mitgliederliste abgleichen.</p>
+
+  <h2>Was ist CAMT.053?</h2>
+  <p>CAMT.053 ist der Standard (ISO 20022) für einen maschinenlesbaren Kontoauszug. Jede Buchung steht dort in Feldern: Betrag, Datum, Soll/Haben, Verwendungszweck, Name des Zahlers und – bei Lastschriften – die Mandatsreferenz.</p>
+
+  <h2>Woher bekommt man die Datei?</h2>
+  <p>Im Online-Banking fast jeder Bank gibt es beim Kontoauszug den Export <span class="pill">CAMT.053</span> bzw. <span class="pill">ISO 20022 XML</span> (teils neben MT940). Einfach herunterladen – fertig.</p>
+
+  <h2>Wofür nutzen?</h2>
+  <ul>
+    <li><b>Beitragsabgleich:</b> erkennen, welches Mitglied bezahlt hat und wer offen ist.</li>
+    <li><b>Rückläufer:</b> fehlgeschlagene Lastschriften schneller finden.</li>
+    <li><b>Kassenprüfung:</b> Buchungen nachvollziehbar zuordnen.</li>
+  </ul>
+
+  <h2>Im Werkzeug nutzen</h2>
+  <p>Der <a href="./index.html">SEPA-Rechner für Vereine</a> liest die CAMT.053-Datei im Browser ein und gleicht sie mit der Mitgliederliste ab – per Mandatsreferenz oder Name. Ergebnis: <b>bezahlt / offen</b> je Mitglied (siehe <a href="./sepa-lastschrift-verein.html">Kontenabgleich</a>).</p>
+
+  <a class="cta" href="./index.html">Kontoauszug hochladen → Kontenabgleich kostenlos →</a>
+  <p class="muted">Weiterlesen: <a href="./sepa-lastschrift-verein.html">SEPA-Lastschrift für Vereine</a> · <a href="./lastschrift-rueckgabe.html">Rückgabe &amp; Rückbuchung</a> · <a href="./datenschutz.html">Datenschutz</a></p>
+</article>
+</main>
+</body>
+</html>
