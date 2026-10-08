@@ -131,6 +131,46 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://vanitas50.github.io/sepa-verein/sepa-validieren.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://vanitas50.github.io/sepa-verein/pain008-vs-pain001.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://vanitas50.github.io/sepa-verein/mitgliederversammlung-einladung-fristen.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://vanitas50.github.io/sepa-verein/beitragsordnung-verein.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://vanitas50.github.io/sepa-verein/vorlagen/kassenbericht.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://vanitas50.github.io/sepa-verein/vorlagen/einladung-mitgliederversammlung.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://vanitas50.github.io/sepa-verein/vorlagen/beitragsordnung.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://vanitas50.github.io/sepa-verein/vorlagen/kuendigung-mitgliedschaft.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://vanitas50.github.io/sepa-verein/datenschutz.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

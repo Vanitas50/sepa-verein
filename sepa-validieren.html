@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEPA-Datei prüfen &amp; validieren (pain.008) – Anleitung</title>
+<meta name="description" content="SEPA-Lastschriftdatei vor dem Upload prüfen: was Banken validieren, typische Fehler bei pain.008 und wie Sie Fehler vermeiden.">
+<link rel="canonical" href="https://vanitas50.github.io/sepa-verein/sepa-validieren.html">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SEPA-Datei prüfen &amp; validieren (pain.008)">
+<meta property="og:description" content="Was Banken validieren und typische Fehler bei pain.008 vermeiden.">
+<meta property="og:url" content="https://vanitas50.github.io/sepa-verein/sepa-validieren.html">
+<meta property="og:image" content="https://vanitas50.github.io/sepa-verein/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root { --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --brand:#0d6efd; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; color:var(--ink); background:#f1f5f9; line-height:1.65; }
+  header { background:#0f172a; color:#fff; padding:28px 20px; } .wrap { max-width:760px; margin:0 auto; }
+  header a { color:#93c5fd; text-decoration:none; font-size:.9rem; }
+  main { padding:28px 20px 60px; } article { background:#fff; border:1px solid var(--line); border-radius:14px; padding:28px; }
+  h1 { font-size:1.6rem; margin:.2rem 0 1rem; } h2 { font-size:1.13rem; margin:1.7rem 0 .4rem; }
+  .pill { display:inline-block; background:#f8fafc; border:1px solid var(--line); border-radius:6px; padding:1px 8px; font-family:ui-monospace,monospace; font-size:.85rem; }
+  .cta { display:block; background:var(--brand); color:#fff; text-align:center; padding:14px; border-radius:10px; text-decoration:none; font-weight:600; margin:26px 0 6px; }
+  .muted { color:var(--muted); font-size:.85rem; } ul { padding-left:1.2rem; }
+</style>
+</head>
+<body>
+<header><div class="wrap"><a href="./index.html">← SEPA-Rechner für Vereine</a></div></header>
+<main class="wrap">
+<article>
+  <h1>SEPA-Datei prüfen &amp; validieren</h1>
+  <p>Lehnt die Bank eine Lastschriftdatei ab, liegt es fast immer an Format- oder Pflichtfeld-Fehlern. Eine Prüfung vor dem Upload spart Zeit und vermeidet Rückläufer.</p>
+
+  <h2>Was geprüft wird</h2>
+  <ul>
+    <li><b>Struktur (XSD):</b> die XML entspricht dem Schema <span class="pill">pain.008.001.08</span>.</li>
+    <li><b>Pflichtfelder:</b> Gläubiger-ID, IBAN, Betrag, Fälligkeit, Mandatsreferenz, Mandatsdatum.</li>
+    <li><b>IBAN/BIC:</b> gültige Prüfziffer (mod 97), korrekte Länge.</li>
+    <li><b>Summen:</b> Anzahl und Kontrollsumme (CtrlSum) je Block.</li>
+    <li><b>Logik:</b> Mandatsdatum vor Fälligkeit; Sequenz FRST/RCUR/FNAL.</li>
+  </ul>
+
+  <h2>Typische Fehler</h2>
+  <ul>
+    <li>IBAN mit Leerzeichen oder Tippfehler.</li>
+    <li>Fehlende Mandatsreferenz oder doppelte Referenzen.</li>
+    <li>Fallender Fälligkeitstag an einem Wochenende/Feiertag.</li>
+    <li>Umlaute/Zeichen, die im Feld nicht erlaubt sind.</li>
+  </ul>
+
+  <h2>So vermeiden Sie es</h2>
+  <p>Der <a href="./index.html">SEPA-Rechner für Vereine</a> prüft IBAN/BIC, Pflichtfelder und Logik bereits beim Einlesen und erzeugt eine schema-konforme Datei – die Ergebnisdatei wurde gegen das offizielle <span class="pill">pain.008.001.08</span>-XSD validiert.</p>
+
+  <h2>Häufige Fragen</h2>
+  <p><b>Reicht eine CSV/Excel für die Bank?</b> Nein – nötig ist die XML-Datei (pain.008).</p>
+  <p><b>Kann ich mehrere Einzüge in einer Datei bündeln?</b> Ja, mehrere Buchungen in einer Sammeldatei sind üblich.</p>
+
+  <a class="cta" href="./index.html">Datei kostenlos erzeugen &amp; prüfen →</a>
+  <p class="muted">Weiterlesen: <a href="./pain008-vs-pain001.html">pain.008 vs pain.001</a> · <a href="./sepa-lastschrift-online-banking.html">Im Online-Banking einreichen</a> · <a href="./sepa-lastschrift-verein.html">SEPA-Lastschrift für Vereine</a> · <a href="./datenschutz.html">Datenschutz</a></p>
+</article>
+</main>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+ {"@type":"Question","name":"Reicht eine Excel-Liste für die SEPA-Lastschrift bei der Bank?","acceptedAnswer":{"@type":"Answer","text":"Nein. Die Bank benötigt eine XML-Datei im Format pain.008.001.08."}}
+]}
+</script>
+</body>
+</html>

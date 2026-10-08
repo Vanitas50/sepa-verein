@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>pain.008 vs pain.001 – Lastschrift oder Überweisung?</title>
+<meta name="description" content="Unterschied pain.008 (Lastschrift) und pain.001 (Überweisung): wann welche SEPA-Datei gebraucht wird – kurz erklärt.">
+<link rel="canonical" href="https://vanitas50.github.io/sepa-verein/pain008-vs-pain001.html">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pain.008 vs pain.001 – Lastschrift oder Überweisung?">
+<meta property="og:description" content="Wann welche SEPA-Datei gebraucht wird.">
+<meta property="og:url" content="https://vanitas50.github.io/sepa-verein/pain008-vs-pain001.html">
+<meta property="og:image" content="https://vanitas50.github.io/sepa-verein/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root { --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --brand:#0d6efd; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; color:var(--ink); background:#f1f5f9; line-height:1.65; }
+  header { background:#0f172a; color:#fff; padding:28px 20px; } .wrap { max-width:760px; margin:0 auto; }
+  header a { color:#93c5fd; text-decoration:none; font-size:.9rem; }
+  main { padding:28px 20px 60px; } article { background:#fff; border:1px solid var(--line); border-radius:14px; padding:28px; }
+  h1 { font-size:1.6rem; margin:.2rem 0 1rem; } h2 { font-size:1.13rem; margin:1.7rem 0 .4rem; }
+  table { width:100%; border-collapse:collapse; font-size:.9rem; } th,td { text-align:left; padding:8px; border-bottom:1px solid var(--line); }
+  .pill { display:inline-block; background:#f8fafc; border:1px solid var(--line); border-radius:6px; padding:1px 8px; font-family:ui-monospace,monospace; font-size:.85rem; }
+  .cta { display:block; background:var(--brand); color:#fff; text-align:center; padding:14px; border-radius:10px; text-decoration:none; font-weight:600; margin:26px 0 6px; }
+  .muted { color:var(--muted); font-size:.85rem; }
+</style>
+</head>
+<body>
+<header><div class="wrap"><a href="./index.html">← SEPA-Rechner für Vereine</a></div></header>
+<main class="wrap">
+<article>
+  <h1>pain.008 vs. pain.001</h1>
+  <p>Beide sind ISO-20022-XML-Dateien für das Online-Banking – aber für unterschiedliche Zahlungen. Verwechselt man sie, lehnt die Bank die Datei ab.</p>
+
+  <h2>Der Unterschied</h2>
+  <table>
+    <tr><th>Datei</th><th>Zweck</th><th>Richtung</th></tr>
+    <tr><td><span class="pill">pain.001</span></td><td>Überweisungen (SCT)</td><td>du zahlst</td></tr>
+    <tr><td><span class="pill">pain.008</span></td><td>Lastschriften (SDD)</td><td>du ziehst ein</td></tr>
+  </table>
+
+  <h2>Wann brauchen Sie was?</h2>
+  <ul>
+    <li>Mitgliedsbeiträge <b>einziehen</b> → <span class="pill">pain.008</span> (Lastschrift).</li>
+    <li>Rechnungen/Löhne <b>überweisen</b> → <span class="pill">pain.001</span>.</li>
+  </ul>
+
+  <h2>Für Vereine</h2>
+  <p>Der Beitragseinzug läuft über <b>pain.008</b>. Diesen Teil erzeugt der <a href="./index.html">SEPA-Rechner</a> kostenlos aus Ihrer Mitgliederliste. Überweisungen (pain.001) macht Ihr Online-Banking meist selbst.</p>
+
+  <h2>Häufige Frage</h2>
+  <p><b>Kann ein Programm beides?</b> Oft ja – aber Format und Zweck klar trennen, damit die Bank die Datei korrekt verarbeitet.</p>
+
+  <a class="cta" href="./index.html">pain.008 für Beiträge erzeugen →</a>
+  <p class="muted">Weiterlesen: <a href="./sepa-validieren.html">SEPA-Datei validieren</a> · <a href="./sepa-lastschrift-verein.html">SEPA-Lastschrift für Vereine</a> · <a href="./datenschutz.html">Datenschutz</a></p>
+</article>
+</main>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+ {"@type":"Question","name":"Was ist der Unterschied zwischen pain.008 und pain.001?","acceptedAnswer":{"@type":"Answer","text":"pain.001 sind Überweisungen, pain.008 sind Lastschriften. Für den Beitragseinzug im Verein ist pain.008 die richtige Datei."}}
+]}
+</script>
+</body>
+</html>
