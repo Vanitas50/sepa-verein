@@ -249,7 +249,7 @@
 <script type="module">
 import * as s from "./sepa.js";
 import { parseXlsx } from "./xlsx.js";
-import { parseStatement, reconcile, summarize } from "./abgleich.js";
+import { parseStatement, reconcile, summarize, buildReminders } from "./abgleich.js";
 
 const $ = (id) => document.getElementById(id);
 const SAMPLE_IBANS = [
@@ -267,6 +267,7 @@ $("cfgDate").value = defaultDate();
 let lastXml = "", lastPrenote = "";
 let xlsxRows = null;
 let lastMembers = [];
+let lastConfig = null;
 
 function download(name, text, mime) {
   const blob = new Blob([text], { type: mime });
@@ -288,6 +289,7 @@ function readConfig() {
 
 function run() {
   const cfg = readConfig();
+  lastConfig = cfg;
   const collectionDate = $("cfgDate").value;
   const seq = $("cfgSeq").value;
   const result = $("result");
@@ -404,11 +406,19 @@ function renderAbgleich(rows) {
        <div><label>Offen (Summe)</label><b>${fmt(st.openCents)}</b></div>
      </div>
      <table><tr><th>Mitglied</th><th>Mandat</th><th>Betrag</th><th>Status</th></tr>${body}</table>
-     <button class="ghost" id="dlAbgleich" type="button" style="margin-top:12px">Als CSV exportieren</button>`;
+     <div class="row" style="margin-top:12px">
+       <button class="ghost" id="dlAbgleich" type="button">Als CSV exportieren</button>
+       <button class="ghost" id="dlReminders" type="button">Zahlungserinnerungen (offene)</button>
+     </div>`;
   $("dlAbgleich").addEventListener("click", () => {
     const csv = "Name;Mandatsreferenz;Betrag;Status\n" +
       rows.map((r) => `${r.name};${r.mandateRef};${(r.cents / 100).toFixed(2).replace(".", ",")};${r.status}`).join("\n");
     download("beitragsabgleich.csv", "\ufeff" + csv, "text/csv");
+  });
+  $("dlReminders").addEventListener("click", () => {
+    const txt = buildReminders(lastConfig, rows);
+    if (!txt) { $("abgleichResult").insertAdjacentHTML("beforeend", "<p class='muted'>Keine offenen Posten.</p>"); return; }
+    download("zahlungserinnerungen.txt", txt, "text/plain");
   });
 }
 

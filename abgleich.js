@@ -153,3 +153,18 @@ export function summarize(rows) {
     openCents: open.reduce((s, r) => s + r.cents, 0),
   };
 }
+
+export function buildReminders(config, rows) {
+  const fmt = (c) => (c / 100).toFixed(2).replace(".", ",");
+  const name = config && config.name ? config.name : "";
+  const open = rows.filter((r) => r.status === "offen");
+  return open.map((r) =>
+    `Sehr geehrte/r ${r.name},\n\n` +
+    `nach unseren Unterlagen ist Ihr Mitgliedsbeitrag von ${fmt(r.cents)} EUR noch offen. ` +
+    `Bitte überweisen Sie den Betrag oder sorgen Sie für ausreichende Kontodeckung.\n\n` +
+    (r.mandateRef ? `Mandatsreferenz: ${r.mandateRef}\n` : "") +
+    `Verein: ${name}\n\n` +
+    `Sollte sich die Zahlung überschnitten haben, betrachten Sie dieses Schreiben bitte als erledigt.\n\n` +
+    `Mit freundlichen Grüßen\n${name}\n`
+  ).join("\n" + "-".repeat(40) + "\n\n");
+}
