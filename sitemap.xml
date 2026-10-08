@@ -96,6 +96,26 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://vanitas50.github.io/sepa-verein/sepa-lastschrift-kleingartenverein.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://vanitas50.github.io/sepa-verein/mahnung-verein.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vanitas50.github.io/sepa-verein/kassenbericht-verein.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vanitas50.github.io/sepa-verein/sepa-b2b.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://vanitas50.github.io/sepa-verein/datenschutz.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
