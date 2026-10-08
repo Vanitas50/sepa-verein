@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEPA-Lastschriftmandat für Vereine – kostenlose Vorlage</title>
+<meta name="description" content="Kostenlose Vorlage für das SEPA-Lastschriftmandat im Verein: Gläubiger-ID, Mandatsreferenz und korrekter Mandatstext zum Ausdrucken.">
+<link rel="canonical" href="https://Vanitas50.github.io/sepa-verein/vorlagen/mandat.html">
+<style>
+  :root { --ink:#0f172a; --line:#cbd5e1; --muted:#64748b; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; color:var(--ink); background:#eef2f7; line-height:1.5; }
+  .bar { background:#0f172a; color:#fff; }
+  .bar .wrap { max-width:820px; margin:0 auto; padding:14px 20px; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+  .bar a { color:#93c5fd; text-decoration:none; font-size:.9rem; }
+  .bar button { background:#0d6efd; color:#fff; border:0; border-radius:8px; padding:9px 16px; font:inherit; font-weight:600; cursor:pointer; }
+  .win { max-width:820px; margin:20px auto; padding:0 20px; }
+  .sheet { background:#fff; padding:36px 40px; border:1px solid var(--line); border-radius:8px; }
+  h1 { font-size:1.25rem; margin:0 0 4px; }
+  .sub { color:var(--muted); font-size:.85rem; margin:0 0 22px; }
+  fieldset { border:1px solid var(--line); border-radius:8px; margin:0 0 16px; padding:14px 16px; }
+  legend { font-weight:700; font-size:.85rem; padding:0 6px; }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:12px 22px; }
+  .f { font-size:.9rem; }
+  .f span { display:block; color:var(--muted); font-size:.78rem; }
+  .line { border-bottom:1px dotted #94a3b8; min-height:22px; }
+  .mandat { font-size:.86rem; background:#f8fafc; border:1px solid var(--line); border-radius:8px; padding:12px 14px; margin:0 0 16px; }
+  .sig { display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:26px; }
+  .sig .line { border-bottom:1px solid #475569; height:34px; }
+  .sig .lbl { font-size:.78rem; color:var(--muted); }
+  .hint { max-width:820px; margin:0 auto 30px; padding:0 20px; color:var(--muted); font-size:.85rem; }
+  @media print {
+    body { background:#fff; }
+    .bar, .hint, .noprint { display:none !important; }
+    .win { margin:0; padding:0; max-width:none; }
+    .sheet { border:0; padding:0; }
+    @page { size:A4; margin:16mm; }
+  }
+  @media (max-width:640px){ .grid,.sig{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<div class="bar">
+  <div class="wrap">
+    <a href="../index.html">← SEPA-Rechner für Vereine</a>
+    <button class="noprint" onclick="window.print()">Drucken / als PDF speichern</button>
+  </div>
+</div>
+
+<div class="win">
+<div class="sheet">
+  <h1>SEPA-Lastschriftmandat</h1>
+  <p class="sub">Für den Einzug wiederkehrender Mitgliedsbeiträge im Verein.</p>
+
+  <fieldset>
+    <legend>Zahlungsempfänger (Verein)</legend>
+    <div class="grid">
+      <div class="f"><span>Name des Vereins</span><div class="line"></div></div>
+      <div class="f"><span>Gläubiger-Identifikationsnummer</span><div class="line"></div></div>
+      <div class="f"><span>Anschrift</span><div class="line"></div></div>
+      <div class="f"><span>Mandatsreferenz (z. B. Mitgliedsnummer)</span><div class="line"></div></div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Zahlungspflichtige Person (Mitglied)</legend>
+    <div class="grid">
+      <div class="f"><span>Name, Vorname</span><div class="line"></div></div>
+      <div class="f"><span>Anschrift</span><div class="line"></div></div>
+      <div class="f"><span>IBAN</span><div class="line"></div></div>
+      <div class="f"><span>BIC (falls ausländisches Konto)</span><div class="line"></div></div>
+      <div class="f"><span>Kontoinhaber (falls abweichend)</span><div class="line"></div></div>
+      <div class="f"><span>Beitrag / Betrag</span><div class="line"></div></div>
+    </div>
+  </fieldset>
+
+  <div class="mandat">
+    Ich ermächtige <b>[Name des Vereins]</b>, Zahlungen von meinem Konto mittels Lastschrift einzuziehen.
+    Zugleich weise ich mein Kreditinstitut an, die von <b>[Name des Vereins]</b> auf mein Konto gezogenen
+    Lastschriften einzulösen. Es handelt sich um eine <b>wiederkehrende Zahlung</b> (RCUR).
+    <br><br>
+    Hinweis: Ich kann innerhalb von acht Wochen, beginnend mit dem Belastungsdatum, die Erstattung des
+    belastenden Betrages verlangen. Es gelten dabei die mit meinem Kreditinstitut vereinbarten Bedingungen.
+  </div>
+
+  <div class="sig">
+    <div>
+      <div class="line"></div>
+      <div class="lbl">Datum, Ort</div>
+    </div>
+    <div>
+      <div class="line"></div>
+      <div class="lbl">Unterschrift der/des Zahlungspflichtigen</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<p class="hint">
+  Hinweis: Diese Vorlage ist eine unverbindliche Hilfe und ersetzt keine Rechtsberatung. Gläubiger-ID und
+  Mandatsreferenz müssen korrekt hinterlegt sein. Den Einzug mindestens 14 Tage vorher ankündigen (Prenotification).
+  <br><br>
+  <a href="../index.html">Weiter zur SEPA-Datei für Ihre Mitgliedsbeiträge →</a>
+</p>
+</body>
+</html>

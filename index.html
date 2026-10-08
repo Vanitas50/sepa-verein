@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEPA-Lastschrift für Vereine – Mitgliedsbeiträge einziehen (pain.008)</title>
+<meta name="description" content="Mitgliedsbeiträge per SEPA-Lastschrift einziehen: Excel/CSV hochladen, geprüfte pain.008-XML für Ihre Bank erzeugen. 100 % im Browser, ohne Anmeldung.">
+<link rel="canonical" href="https://Vanitas50.github.io/sepa-verein/">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SEPA-Lastschrift für Vereine – Mitgliedsbeiträge einziehen">
+<meta property="og:description" content="Excel/CSV hochladen, geprüfte pain.008-Datei für Ihre Bank erzeugen. Kostenlos, 100 % im Browser.">
+<meta property="og:url" content="https://Vanitas50.github.io/sepa-verein/">
+<style>
+  :root { --bg:#0f172a; --card:#fff; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0;
+          --brand:#0d6efd; --ok:#16a34a; --err:#dc2626; --soft:#f8fafc; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+         color:var(--ink); background:#f1f5f9; line-height:1.5; }
+  header { background:var(--bg); color:#fff; padding:32px 20px; }
+  .wrap { max-width:860px; margin:0 auto; }
+  header h1 { margin:0 0 6px; font-size:1.5rem; }
+  header p { margin:0; color:#cbd5e1; }
+  .badge { display:inline-block; margin-top:12px; background:#064e3b; color:#6ee7b7;
+           border-radius:999px; padding:4px 12px; font-size:.8rem; }
+  main { padding:24px 20px 60px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px;
+          padding:20px; margin-bottom:20px; box-shadow:0 1px 2px rgba(0,0,0,.04); }
+  h2 { font-size:1.05rem; margin:0 0 14px; }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  @media (max-width:640px){ .grid{ grid-template-columns:1fr; } }
+  label { display:block; font-size:.85rem; color:var(--muted); margin-bottom:4px; }
+  input,select,textarea { width:100%; padding:10px 12px; border:1px solid var(--line);
+        border-radius:9px; font:inherit; background:#fff; }
+  textarea { min-height:180px; font-family:ui-monospace,Menlo,monospace; font-size:.82rem; }
+  button { font:inherit; cursor:pointer; border-radius:9px; border:1px solid transparent;
+           padding:11px 18px; font-weight:600; }
+  .primary { background:var(--brand); color:#fff; }
+  .primary:hover { background:#0b5ed7; }
+  .ghost { background:#fff; border-color:var(--line); color:var(--ink); }
+  .ghost:hover { background:var(--soft); }
+  .row { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .muted { color:var(--muted); font-size:.85rem; }
+  table { width:100%; border-collapse:collapse; font-size:.82rem; }
+  th,td { text-align:left; padding:6px 8px; border-bottom:1px solid var(--line); }
+  .pill { display:inline-block; background:var(--soft); border:1px solid var(--line);
+          border-radius:6px; padding:1px 7px; font-family:ui-monospace,monospace; font-size:.78rem; }
+  .summary { display:flex; gap:24px; flex-wrap:wrap; margin-bottom:14px; }
+  .summary div b { display:block; font-size:1.4rem; }
+  .errors { color:var(--err); }
+  .errors li { margin-bottom:4px; }
+  .okbox { color:var(--ok); font-weight:600; }
+  .badge { display:inline-block; border-radius:999px; padding:1px 10px; font-size:.78rem; font-weight:600; }
+  .badge.ok { background:#dcfce7; color:#166534; }
+  .badge.open { background:#fee2e2; color:#991b1b; }
+  .hidden { display:none; }
+  details summary { cursor:pointer; color:var(--brand); font-size:.85rem; }
+  footer { color:var(--muted); font-size:.8rem; text-align:center; padding:0 20px 40px; }
+  #fileStatus { font-size:.82rem; color:var(--muted); }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Was kostet die Erstellung?", "acceptedAnswer": {"@type": "Answer", "text": "Die SEPA-Datei ist kostenlos und läuft vollständig im Browser."}},
+    {"@type": "Question", "name": "Werden meine Mitgliederdaten hochgeladen?", "acceptedAnswer": {"@type": "Answer", "text": "Nein. Alle Berechnungen laufen lokal im Browser, es werden keine Daten an einen Server gesendet."}},
+    {"@type": "Question", "name": "Welches Format erzeuge ich?", "acceptedAnswer": {"@type": "Answer", "text": "pain.008.001.08 (SEPA-Basislastschrift, CORE), ISO-20022-konform."}},
+    {"@type": "Question", "name": "Brauche ich eine Gläubiger-ID?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, kostenlos bei der Deutschen Bundesbank (glaeubiger-id.bundesbank.de)."}},
+    {"@type": "Question", "name": "Kann ich eine Excel-Datei .xlsx hochladen?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, direkt .xlsx oder eine CSV mit Semikolon oder Komma."}},
+    {"@type": "Question", "name": "Was ist die Prenotification?", "acceptedAnswer": {"@type": "Answer", "text": "Die Pflicht, den Einzug mindestens 14 Tage vorher anzukündigen."}}
+  ]
+}
+</script>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>SEPA-Lastschrift für Vereine</h1>
+    <p>Mitgliedsbeiträge einziehen: Excel/CSV hochladen – geprüfte <b>pain.008.001.08</b>-Datei für Ihre Bank erhalten.</p>
+    <span class="badge">🔒 100 % im Browser – keine Daten werden hochgeladen</span>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="card">
+    <h2>1 · Vereinsdaten</h2>
+    <div class="grid">
+      <div><label>Vereinsname (Kontoinhaber)</label><input id="cfgName" placeholder="z. B. TSV Musterstadt 1899 e.V."></div>
+      <div><label>Gläubiger-ID (Creditor Identifier)</label><input id="cfgCid" placeholder="DE98ZZZ09999999999"></div>
+      <div><label>Vereins-IBAN (Einzugskonto)</label><input id="cfgIban" placeholder="DE00 0000 0000 0000 0000 00"></div>
+      <div><label>Vereins-BIC</label><input id="cfgBic" placeholder="GENODEF1XXX"></div>
+      <div><label>Fälligkeit (Einzugsdatum, mind. 14 Tage vorher)</label><input id="cfgDate" type="date"></div>
+      <div><label>Lastschriftart</label>
+        <select id="cfgSeq"><option value="RCUR">Wiederkehrend (RCUR)</option><option value="FRST">Ersteinzug (FRST)</option><option value="OOFF">Einmalig (OOFF)</option></select>
+      </div>
+    </div>
+    <p class="muted" style="margin:12px 0 0">Gläubiger-ID kostenlos bei der Deutschen Bundesbank beantragen: <span class="pill">glaeubiger-id.bundesbank.de</span></p>
+  </div>
+
+  <div class="card">
+    <h2>2 · Mitglieder</h2>
+    <div class="row">
+      <input id="file" type="file" accept=".csv,.xlsx,text/csv,text/plain,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" style="max-width:320px">
+      <span id="fileStatus">oder unten einfügen (CSV)</span>
+      <button class="ghost" id="btnSample" type="button">Beispiel ausfüllen</button>
+      <button class="ghost" id="btnTemplate" type="button">CSV-Vorlage laden</button>
+    </div>
+    <p class="muted" style="margin:12px 0 6px">Trennzeichen <span class="pill">;</span> <span class="pill">,</span> oder <span class="pill">Tab</span>. Kopfzeile mit u. a.:</p>
+    <details>
+      <summary>Erkannte Spaltennamen anzeigen</summary>
+      <table>
+        <tr><th>Spalte</th><th>Auch erkannt als</th></tr>
+        <tr><td class="pill">Name</td><td>Mitglied, Kontoinhaber, Vorname + Nachname</td></tr>
+        <tr><td class="pill">IBAN</td><td>–</td></tr>
+        <tr><td class="pill">BIC</td><td>SWIFT (optional)</td></tr>
+        <tr><td class="pill">Beitrag</td><td>Betrag, Summe, Amount (<span class="pill">120,00</span>)</td></tr>
+        <tr><td class="pill">Mandatsreferenz</td><td>Mandat, Mandatsref</td></tr>
+        <tr><td class="pill">Mandatsdatum</td><td>Datum Mandat (<span class="pill">TT.MM.JJJJ</span>)</td></tr>
+        <tr><td class="pill">Verwendungszweck</td><td>Zweck, Betreff</td></tr>
+        <tr><td class="pill">Erstmalig</td><td>ja/x → Ersteinzug (sonst RCUR)</td></tr>
+      </table>
+    </details>
+    <textarea id="csv" placeholder="Name;IBAN;BIC;Beitrag;Mandatsreferenz;Mandatsdatum;Verwendungszweck;Erstmalig" style="margin-top:14px"></textarea>
+  </div>
+
+  <div class="row" style="margin-bottom:20px">
+    <button class="primary" id="btnRun" type="button">SEPA-Datei erzeugen</button>
+    <span id="runHint" class="muted"></span>
+  </div>
+
+  <div class="card hidden" id="result">
+    <h2>Ergebnis</h2>
+    <div class="summary">
+      <div><label>Lastschriften</label><b id="sumCount">0</b></div>
+      <div><label>Summe</label><b id="sumAmount">0,00 €</b></div>
+      <div><label>Format</label><b style="font-size:1rem">pain.008.001.08</b></div>
+    </div>
+    <div id="okbox" class="okbox"></div>
+    <div id="errwrap" class="hidden">
+      <p class="errors"><b>Folgende Zeilen wurden übersprungen:</b></p>
+      <ul id="errlist" class="errors"></ul>
+    </div>
+    <div class="row" style="margin-top:14px">
+      <button class="primary" id="dlXml" type="button">XML herunterladen</button>
+      <button class="ghost" id="dlPrenote" type="button">Prenotification (Text)</button>
+    </div>
+    <p class="muted" style="margin-top:14px">Prenotification: Die Bank verlangt, dass Sie die Lastschrift mindestens <b>14 Tage vorher</b> ankündigen. Diese Vorlage erinnert an die Pflichtangaben.</p>
+  </div>
+
+  <div class="card">
+    <h2>Kontenabgleich <span class="badge ok">Pro</span></h2>
+    <p class="muted">Kontoauszug aus dem Online-Banking laden (<span class="pill">CAMT.053</span>-XML) – wir zeigen je Mitglied, wer bezahlt hat und wer offen ist. Zuerst oben die Mitgliederliste einlesen.</p>
+    <input id="camtFile" type="file" accept=".xml,text/xml" style="max-width:340px">
+    <div id="abgleichResult" style="margin-top:14px"></div>
+  </div>
+
+  <div class="card">
+    <h2>So ziehen Sie Mitgliedsbeiträge per SEPA-Lastschrift ein</h2>
+    <ol>
+      <li><b>Gläubiger-ID</b> kostenlos bei der Deutschen Bundesbank beantragen.</li>
+      <li>Von jedem Mitglied ein <b>SEPA-Lastschriftmandat</b> mit Mandatsreferenz einholen.</li>
+      <li>Mitgliederliste als <b>Excel oder CSV</b> hochladen und die pain.008-XML erzeugen.</li>
+      <li>XML-Datei im Online-Banking Ihrer Bank hochladen.</li>
+      <li>Den Einzug mindestens <b>14 Tage vorher ankündigen</b> (Prenotification).</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2>Häufige Fragen</h2>
+    <details><summary>Was kostet die Erstellung?</summary><p>Die SEPA-Datei ist kostenlos und läuft vollständig in Ihrem Browser.</p></details>
+    <details><summary>Werden meine Mitgliederdaten hochgeladen?</summary><p>Nein. Alle Berechnungen laufen lokal im Browser. Es werden keine Daten an einen Server gesendet.</p></details>
+    <details><summary>Welches Format erzeuge ich?</summary><p>pain.008.001.08 (SEPA-Basislastschrift, CORE) – ISO-20022-konform und gegen das offizielle Schema geprüft.</p></details>
+    <details><summary>Brauche ich eine Gläubiger-ID?</summary><p>Ja. Sie beantragen sie kostenlos bei der Bundesbank (glaeubiger-id.bundesbank.de).</p></details>
+    <details><summary>Kann ich eine Excel-Datei (.xlsx) hochladen?</summary><p>Ja, direkt .xlsx. Alternativ eine CSV mit Semikolon oder Komma einfügen.</p></details>
+    <details><summary>Was ist die Prenotification?</summary><p>Die Pflicht, den Einzug mindestens 14 Tage vorher anzukündigen – mit Gläubiger-ID, Mandatsreferenz und Betrag.</p></details>
+  </div>
+
+  <div class="card">
+    <h2>Kostenlose Vorlage & Updates</h2>
+    <p class="muted">Laden Sie die fertige <a href="./vorlagen/mandat.html">SEPA-Mandat-Vorlage</a> herunter – zum Ausdrucken oder als PDF.</p>
+    <p class="muted">Tragen Sie Ihre E-Mail ein – ich melde mich, sobald die Pro-Version startet (Beiträge automatisch ankündigen, CAMT-Abgleich). Kein Spam, jederzeit abbestellbar.</p>
+    <form action="https://formspree.io/f/REPLACE_ME" method="POST" class="row" style="gap:10px">
+      <input type="email" name="email" required placeholder="deine@email.de" style="max-width:280px">
+      <button class="primary" type="submit">Benachrichtigen</button>
+    </form>
+  </div>
+
+</main>
+<footer>
+  Kein Rechtsberatung. Bitte vor dem Upload bei Ihrer Bank prüfen. Erzeugt EN-16931-/ISO-20022-konforme Dateien, keine Gewähr für die Annahme durch jedes Kreditinstitut.
+  <br>
+  <a href="./sepa-lastschrift-verein.html">SEPA-Lastschrift für Vereine</a> ·
+  <a href="./glaeubiger-id.html">Gläubiger-ID beantragen</a> ·
+  <a href="./prenotification-vorlage.html">Prenotification-Vorlage</a> ·
+  <a href="./mitgliedsbeitraege-einziehen.html">Mitgliedsbeiträge einziehen</a>
+</footer>
+
+<script type="module">
+import * as s from "./sepa.js";
+import { parseXlsx } from "./xlsx.js";
+import { parseCamt053, reconcile, summarize } from "./abgleich.js";
+
+const $ = (id) => document.getElementById(id);
+const SAMPLE_IBANS = [
+  "DE89370400440532013000", "DE02500105170137075030", "DE91100000000123456789",
+  "DE87700202700987654321", "DE42120300000011223344",
+];
+
+function defaultDate() {
+  const d = new Date();
+  d.setDate(d.getDate() + 21);
+  return d.toISOString().slice(0, 10);
+}
+$("cfgDate").value = defaultDate();
+
+let lastXml = "", lastPrenote = "";
+let xlsxRows = null;
+let lastMembers = [];
+
+function download(name, text, mime) {
+  const blob = new Blob([text], { type: mime });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = name; a.click();
+  URL.revokeObjectURL(url);
+}
+
+function readConfig() {
+  return {
+    name: $("cfgName").value.trim(),
+    creditorId: $("cfgCid").value.trim(),
+    iban: $("cfgIban").value.replace(/\s/g, "").toUpperCase(),
+    bic: $("cfgBic").value.replace(/\s/g, "").toUpperCase(),
+    prefix: "SEPA",
+  };
+}
+
+function run() {
+  const cfg = readConfig();
+  const collectionDate = $("cfgDate").value;
+  const seq = $("cfgSeq").value;
+  const result = $("result");
+  result.classList.remove("hidden");
+  $("runHint").textContent = "";
+
+  const cfgErr = s.validateConfig(cfg);
+  if (!collectionDate) cfgErr.push("Fälligkeitsdatum fehlt");
+  if (cfgErr.length) {
+    $("okbox").textContent = "";
+    $("errwrap").classList.remove("hidden");
+    $("errlist").innerHTML = cfgErr.map((e) => `<li>${e}</li>`).join("");
+    $("sumCount").textContent = "0";
+    $("sumAmount").textContent = "0,00 €";
+    $("dlXml").disabled = true; $("dlPrenote").disabled = true;
+    return;
+  }
+
+  const text = $("csv").value.trim();
+  if (!text && !xlsxRows) {
+    $("runHint").textContent = "Bitte Mitglieder als CSV einfügen oder Excel-Datei wählen.";
+    return;
+  }
+  const parsed = xlsxRows || s.parseCsv(text);
+  if (!Object.keys(parsed.mapping).length) {
+    $("runHint").textContent = "Keine bekannten Spalten erkannt – Kopfzeile prüfen (IBAN, Beitrag, Mandatsreferenz …).";
+    return;
+  }
+  const opts = { collectionDate, seq, scheme: "CORE", msgId: null };
+  const { members, errors } = s.prepare(parsed.rows, opts);
+  lastMembers = members;
+  if (!members.length) {
+    $("runHint").textContent = "Keine gültigen Zeilen gefunden.";
+  }
+
+  const total = members.reduce((a, m) => a + m.cents, 0);
+  $("sumCount").textContent = String(members.length);
+  $("sumAmount").textContent = (total / 100).toLocaleString("de-DE", { minimumFractionDigits: 2 }) + " €";
+
+  if (errors.length) {
+    $("errwrap").classList.remove("hidden");
+    $("errlist").innerHTML = errors.map((e) => `<li>Zeile ${e.line}${e.name ? ` (${e.name})` : ""}: ${e.msg}</li>`).join("");
+  } else {
+    $("errwrap").classList.add("hidden");
+  }
+  $("okbox").textContent = members.length ? `✅ ${members.length} gültige Lastschriften.` : "";
+
+  lastXml = s.buildXml(cfg, members, opts);
+  lastPrenote = s.buildPrenote(cfg, members, collectionDate);
+  $("dlXml").disabled = !members.length;
+  $("dlPrenote").disabled = !members.length;
+}
+
+$("btnRun").addEventListener("click", run);
+
+$("file").addEventListener("change", async (e) => {
+  const f = e.target.files[0];
+  if (!f) return;
+  if (/\.xlsx$/i.test(f.name)) {
+    try {
+      const { matrix } = await parseXlsx(await f.arrayBuffer());
+      xlsxRows = s.rowsFromMatrix(matrix);
+      $("csv").value = "";
+      $("fileStatus").textContent = `${f.name}: ${xlsxRows.rows.length} Zeilen erkannt`;
+    } catch (err) {
+      xlsxRows = null;
+      $("fileStatus").textContent = "Fehler: " + err.message;
+    }
+    return;
+  }
+  xlsxRows = null;
+  $("csv").value = await f.text();
+  $("fileStatus").textContent = `${f.name} geladen`;
+});
+
+$("btnTemplate").addEventListener("click", () => {
+  xlsxRows = null;
+  download("mitglieder-vorlage.csv",
+    "Name;IBAN;BIC;Beitrag;Mandatsreferenz;Mandatsdatum;Verwendungszweck;Erstmalig\n", "text/csv");
+});
+
+$("btnSample").addEventListener("click", () => {
+  xlsxRows = null;
+  $("cfgName").value = "TSV Musterstadt 1899 e.V.";
+  $("cfgCid").value = "DE98ZZZ09999999999";
+  $("cfgIban").value = "DE66370501980012345678";
+  $("cfgBic").value = "GENODEF1XXX";
+  const rows = [
+    ["Anna Müller", SAMPLE_IBANS[0], "GENODEF1XXX", "120,00", "M-1001", "01.02.2019", "Mitgliedsbeitrag 2026", ""],
+    ["Ben Schmidt", SAMPLE_IBANS[1], "COBADEFFXXX", "90,00", "M-1002", "15.03.2020", "Mitgliedsbeitrag 2026", ""],
+    ["Deniz Yılmaz", SAMPLE_IBANS[2], "DEUTDEDBFRA", "150,00", "M-1003", "01.01.2024", "Mitgliedsbeitrag 2026", "ja"],
+    ["Eren Öztürk", SAMPLE_IBANS[3], "MARKDEF1100", "75,50", "M-1004", "10.10.2018", "Mitgliedsbeitrag 2026", ""],
+    ["Lena Kowalski", SAMPLE_IBANS[4], "INGDDEFFXXX", "120,00", "M-1005", "05.05.2021", "Mitgliedsbeitrag 2026", ""],
+  ];
+  $("csv").value = "Name;IBAN;BIC;Beitrag;Mandatsreferenz;Mandatsdatum;Verwendungszweck;Erstmalig\n" +
+    rows.map((r) => r.join(";")).join("\n");
+  $("fileStatus").textContent = "Beispieldaten geladen";
+});
+
+$("dlXml").addEventListener("click", () => download("sepa-lastschrift.xml", lastXml, "application/xml"));
+$("dlPrenote").addEventListener("click", () => download("prenotification.txt", lastPrenote, "text/plain"));
+
+function renderAbgleich(rows) {
+  const st = summarize(rows);
+  const fmt = (c) => (c / 100).toLocaleString("de-DE", { minimumFractionDigits: 2 }) + " €";
+  const badge = (r) => r.status === "bezahlt"
+    ? `<span class="badge ok">bezahlt${r.method === "name" ? " (Name)" : ""}</span>`
+    : `<span class="badge open">offen</span>`;
+  const body = rows.map((r) => `<tr><td>${r.name}</td><td>${r.mandateRef}</td><td>${fmt(r.cents)}</td><td>${badge(r)}</td></tr>`).join("");
+  $("abgleichResult").innerHTML =
+    `<div class="summary">
+       <div><label>Bezahlt</label><b>${st.paidCount}</b></div>
+       <div><label>Offen</label><b>${st.openCount}</b></div>
+       <div><label>Offen (Summe)</label><b>${fmt(st.openCents)}</b></div>
+     </div>
+     <table><tr><th>Mitglied</th><th>Mandat</th><th>Betrag</th><th>Status</th></tr>${body}</table>`;
+}
+
+$("camtFile").addEventListener("change", async (e) => {
+  const f = e.target.files[0];
+  if (!f) return;
+  if (!lastMembers.length) {
+    $("abgleichResult").innerHTML = "<p class='muted'>Bitte zuerst oben die Mitgliederliste einlesen (\u201eSEPA-Datei erzeugen\u201c).</p>";
+    return;
+  }
+  try {
+    const txns = parseCamt053(await f.text());
+    renderAbgleich(reconcile(lastMembers, txns));
+  } catch (err) {
+    $("abgleichResult").innerHTML = "<p class='errors'>Datei nicht lesbar: " + err.message + "</p>";
+  }
+});
+</script>
+</body>
+</html>

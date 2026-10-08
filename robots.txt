@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://Vanitas50.github.io/sepa-verein/sitemap.xml
