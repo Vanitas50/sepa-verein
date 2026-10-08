@@ -114,7 +114,7 @@
       <div><label>Gläubiger-ID (Creditor Identifier)</label><input id="cfgCid" placeholder="DE98ZZZ09999999999"></div>
       <div><label>Vereins-IBAN (Einzugskonto)</label><input id="cfgIban" placeholder="DE00 0000 0000 0000 0000 00"></div>
       <div><label>Vereins-BIC</label><input id="cfgBic" placeholder="GENODEF1XXX"></div>
-      <div><label>Fälligkeit (Einzugsdatum, mind. 14 Tage vorher)</label><input id="cfgDate" type="date"></div>
+      <div><label>Fälligkeit (Einzugsdatum, mind. 14 Tage vorher)</label><input id="cfgDate" type="date"><p class="muted" id="dateHint" style="margin:4px 0 0"></p></div>
       <div><label>Lastschriftart</label>
         <select id="cfgSeq"><option value="RCUR">Wiederkehrend (RCUR)</option><option value="FRST">Ersteinzug (FRST)</option><option value="OOFF">Einmalig (OOFF)</option></select>
       </div>
@@ -264,6 +264,23 @@ function defaultDate() {
   return d.toISOString().slice(0, 10);
 }
 $("cfgDate").value = defaultDate();
+
+function checkDateHint() {
+  const v = $("cfgDate").value;
+  const el = $("dateHint");
+  if (!v) { el.textContent = ""; return; }
+  if (!s.isBankDay(v)) {
+    const [y, m, d] = v.split("-");
+    const [ny, nm, nd] = s.nextBankDay(v).split("-");
+    el.textContent = `\u26a0 ${d}.${m}.${y} ist kein Bankarbeitstag (Wochenende/Feiertag). Nächster: ${nd}.${nm}.${ny}.`;
+    el.style.color = "#b45309";
+  } else {
+    el.textContent = "Bankarbeitstag \u2713";
+    el.style.color = "#16a34a";
+  }
+}
+$("cfgDate").addEventListener("change", checkDateHint);
+checkDateHint();
 
 let lastXml = "", lastPrenote = "";
 let xlsxRows = null;

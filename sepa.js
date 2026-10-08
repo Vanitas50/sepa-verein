@@ -321,6 +321,44 @@ function stamp() {
   return `${d.getFullYear()}${p(d.getMonth() + 1)}${p(d.getDate())}${p(d.getHours())}${p(d.getMinutes())}${p(d.getSeconds())}`;
 }
 
+function easterSunday(year) {
+  const a = year % 19, b = Math.floor(year / 100), c = year % 100;
+  const d = Math.floor(b / 4), e = b % 4, f = Math.floor((b + 8) / 25);
+  const g = Math.floor((b - f + 1) / 3);
+  const h = (19 * a + b - d - g + 15) % 30;
+  const i = Math.floor(c / 4), k = c % 4;
+  const l = (32 + 2 * e + 2 * i - h - k) % 7;
+  const m = Math.floor((a + 11 * h + 22 * l) / 451);
+  const month = Math.floor((h + l - 7 * m + 114) / 31);
+  const day = ((h + l - 7 * m + 114) % 31) + 1;
+  return Date.UTC(year, month - 1, day);
+}
+
+export function isBankDay(iso) {
+  const [y, mo, d] = String(iso).split("-").map(Number);
+  if (!y || !mo || !d) return false;
+  const t = Date.UTC(y, mo - 1, d);
+  const wd = new Date(t).getUTCDay();
+  if (wd === 0 || wd === 6) return false;
+  if (mo === 1 && d === 1) return false;
+  if (mo === 5 && d === 1) return false;
+  if (mo === 12 && (d === 25 || d === 26)) return false;
+  const e = easterSunday(y);
+  if (t === e - 2 * 86400000 || t === e + 86400000) return false;
+  return true;
+}
+
+export function nextBankDay(iso) {
+  const [y, mo, d] = String(iso).split("-").map(Number);
+  let t = Date.UTC(y, mo - 1, d);
+  for (let i = 0; i < 10; i++) {
+    t += 86400000;
+    const dt = new Date(t).toISOString().slice(0, 10);
+    if (isBankDay(dt)) return dt;
+  }
+  return iso;
+}
+
 export function buildPrenote(config, members, collectionDate) {
   const iso = collectionDate;
   const [y, mo, d] = iso.split("-");
