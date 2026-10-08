@@ -56,6 +56,51 @@ export function parseCamt053(xml) {
   return txns;
 }
 
+function parse61(s) {
+  const m = s.match(/^(\d{6})(\d{4})?([CD])([A-Z])?([0-9.,]+)/);
+  if (!m) return null;
+  const cents = Math.round(Number(m[5].replace(/\./g, "").replace(",", ".")) * 100);
+  if (!isFinite(cents)) return null;
+  return { cents, currency: "EUR", credit: m[3] === "C", date: `20${m[1].slice(0, 2)}-${m[1].slice(2, 4)}-${m[1].slice(4, 6)}` };
+}
+
+function clean86(txt) {
+  return String(txt).replace(/\?\d{2}/g, " ").replace(/\s+/g, " ").trim();
+}
+
+export function parseMT940(text) {
+  const txns = [];
+  let cur = null;
+  const push = () => { if (cur) { txns.push(cur); cur = null; } };
+  for (const raw of String(text).split(/\r?\n/)) {
+    const m61 = raw.match(/^:61:(.*)$/);
+    if (m61) {
+      push();
+      const info = parse61(m61[1]);
+      cur = info ? { ...info, debtorName: "", mandateRef: "", remittance: "", endToEnd: "" } : null;
+      continue;
+    }
+    if (/^:86:/.test(raw)) {
+      if (cur) {
+        const t = clean86(raw.replace(/^:86:/, ""));
+        cur.remittance = (cur.remittance ? cur.remittance + " " : "") + t;
+      }
+      continue;
+    }
+    if (/^:\d\d/.test(raw)) continue;
+    if (cur && raw.trim()) cur.remittance = (cur.remittance + " " + raw.trim()).trim();
+  }
+  push();
+  return txns;
+}
+
+export function parseStatement(text) {
+  const t = String(text);
+  if (t.trimStart().startsWith("<")) return parseCamt053(t);
+  if (/:61:/.test(t) || /^:20:/m.test(t)) return parseMT940(t);
+  return parseCamt053(t);
+}
+
 function key(s) {
   return String(s || "").toLowerCase()
     .replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue").replace(/ß/g, "ss")

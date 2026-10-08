@@ -174,8 +174,8 @@
 
   <div class="card">
     <h2>Kontenabgleich <span class="badge ok">Pro</span></h2>
-    <p class="muted">Kontoauszug aus dem Online-Banking laden (<span class="pill">CAMT.053</span>-XML) – wir zeigen je Mitglied, wer bezahlt hat und wer offen ist. Zuerst oben die Mitgliederliste einlesen.</p>
-    <input id="camtFile" type="file" accept=".xml,text/xml" style="max-width:340px">
+    <p class="muted">Kontoauszug aus dem Online-Banking laden (<span class="pill">CAMT.053</span>-XML oder <span class="pill">MT940</span>) – wir zeigen je Mitglied, wer bezahlt hat und wer offen ist. Zuerst oben die Mitgliederliste einlesen.</p>
+    <input id="camtFile" type="file" accept=".xml,.sta,.mt940,.940,.txt,text/xml,text/plain" style="max-width:340px">
     <div id="abgleichResult" style="margin-top:14px"></div>
   </div>
 
@@ -249,7 +249,7 @@
 <script type="module">
 import * as s from "./sepa.js";
 import { parseXlsx } from "./xlsx.js";
-import { parseCamt053, reconcile, summarize } from "./abgleich.js";
+import { parseStatement, reconcile, summarize } from "./abgleich.js";
 
 const $ = (id) => document.getElementById(id);
 const SAMPLE_IBANS = [
@@ -414,7 +414,7 @@ $("camtFile").addEventListener("change", async (e) => {
     return;
   }
   try {
-    const txns = parseCamt053(await f.text());
+    const txns = parseStatement(await f.text());
     renderAbgleich(reconcile(lastMembers, txns));
   } catch (err) {
     $("abgleichResult").innerHTML = "<p class='errors'>Datei nicht lesbar: " + err.message + "</p>";
