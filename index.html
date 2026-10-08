@@ -403,7 +403,13 @@ function renderAbgleich(rows) {
        <div><label>Offen</label><b>${st.openCount}</b></div>
        <div><label>Offen (Summe)</label><b>${fmt(st.openCents)}</b></div>
      </div>
-     <table><tr><th>Mitglied</th><th>Mandat</th><th>Betrag</th><th>Status</th></tr>${body}</table>`;
+     <table><tr><th>Mitglied</th><th>Mandat</th><th>Betrag</th><th>Status</th></tr>${body}</table>
+     <button class="ghost" id="dlAbgleich" type="button" style="margin-top:12px">Als CSV exportieren</button>`;
+  $("dlAbgleich").addEventListener("click", () => {
+    const csv = "Name;Mandatsreferenz;Betrag;Status\n" +
+      rows.map((r) => `${r.name};${r.mandateRef};${(r.cents / 100).toFixed(2).replace(".", ",")};${r.status}`).join("\n");
+    download("beitragsabgleich.csv", "\ufeff" + csv, "text/csv");
+  });
 }
 
 $("camtFile").addEventListener("change", async (e) => {
