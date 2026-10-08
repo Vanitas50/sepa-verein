@@ -171,6 +171,26 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://vanitas50.github.io/sepa-verein/vorlagen/mitgliederliste.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vanitas50.github.io/sepa-verein/vorlagen/anwesenheitsliste.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://vanitas50.github.io/sepa-verein/vorlagen/protokoll.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://vanitas50.github.io/sepa-verein/vorlagen/vollmacht.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://vanitas50.github.io/sepa-verein/datenschutz.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
