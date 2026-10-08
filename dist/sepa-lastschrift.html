@@ -129,8 +129,10 @@
       <span id="fileStatus">oder unten einfügen (CSV)</span>
       <button class="ghost" id="btnSample" type="button">Beispiel ausfüllen</button>
       <button class="ghost" id="btnTemplate" type="button">CSV-Vorlage laden</button>
+      <button class="ghost" id="btnSave" type="button">Liste speichern</button>
+      <button class="ghost" id="btnLoad" type="button">Liste laden</button>
     </div>
-    <p class="muted" style="margin:12px 0 6px">Trennzeichen <span class="pill">;</span> <span class="pill">,</span> oder <span class="pill">Tab</span>. Kopfzeile mit u. a.:</p>
+    <p class="muted" style="margin:12px 0 6px">Trennzeichen <span class="pill">;</span> <span class="pill">,</span> oder <span class="pill">Tab</span>. Sie können die Liste auch <b>im Browser speichern</b> (bleibt lokal auf Ihrem Gerät) und später wieder laden. Kopfzeile mit u. a.:</p>
     <details>
       <summary>Erkannte Spaltennamen anzeigen</summary>
       <table>
@@ -1078,6 +1080,18 @@ $("btnTemplate").addEventListener("click", () => {
   xlsxRows = null;
   download("mitglieder-vorlage.csv",
     "Name;IBAN;BIC;Beitrag;Mandatsreferenz;Mandatsdatum;Verwendungszweck;Erstmalig\n", "text/csv");
+});
+
+$("btnSave").addEventListener("click", () => {
+  try {
+    localStorage.setItem("sepa_mitglieder", $("csv").value);
+    $("fileStatus").textContent = "Liste im Browser gespeichert";
+  } catch (e) { $("fileStatus").textContent = "Speichern nicht möglich"; }
+});
+$("btnLoad").addEventListener("click", () => {
+  const t = localStorage.getItem("sepa_mitglieder");
+  if (t) { xlsxRows = null; $("csv").value = t; $("fileStatus").textContent = "Gespeicherte Liste geladen"; }
+  else $("fileStatus").textContent = "Keine gespeicherte Liste gefunden";
 });
 
 $("btnSample").addEventListener("click", () => {
