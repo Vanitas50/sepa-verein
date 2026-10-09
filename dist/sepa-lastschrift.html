@@ -1063,7 +1063,14 @@ function run() {
   } else {
     $("errwrap").classList.add("hidden");
   }
-  $("okbox").textContent = members.length ? `✅ ${members.length} gültige Lastschriften.` : "";
+  const frst = members.filter((m) => m.seq === "FRST").length;
+  const rcur = members.filter((m) => m.seq === "RCUR").length;
+  const ibanCount = {};
+  let dup = 0;
+  members.forEach((m) => { ibanCount[m.iban] = (ibanCount[m.iban] || 0) + 1; if (ibanCount[m.iban] === 2) dup++; });
+  $("okbox").textContent = members.length
+    ? `\u2705 ${members.length} gültige Lastschriften (FRST ${frst}, RCUR ${rcur}).` + (dup ? ` Hinweis: ${dup} IBAN mehrfach genutzt (bei Familien normal).` : "")
+    : "";
 
   lastXml = s.buildXml(cfg, members, opts);
   lastPrenote = s.buildPrenote(cfg, members, collectionDate);
