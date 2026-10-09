@@ -1,0 +1,4 @@
+Datum;Beleg-Nr;Beschreibung;Kategorie;Einnahme;Ausgabe;Saldo
+2026-01-01;2026-001;Kassenbestand Vortrag;Vortrag;300,00;;300,00
+2026-01-15;2026-002;Mitgliedsbeiträge (SEPA);Beiträge;480,00;;780,00
+2026-01-20;2026-003;Hallenmiete;Miete;;150,00;630,00

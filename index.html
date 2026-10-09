@@ -180,6 +180,7 @@
     <div class="row" style="margin-top:14px">
       <button class="primary" id="dlXml" type="button">XML herunterladen</button>
       <button class="ghost" id="dlPrenote" type="button">Prenotification (Text)</button>
+      <button class="ghost" id="dlPrint" type="button">Ankündigung drucken</button>
     </div>
     <p class="muted" style="margin-top:14px">Prenotification: Die Bank verlangt, dass Sie die Lastschrift mindestens <b>14 Tage vorher</b> ankündigen. Diese Vorlage erinnert an die Pflichtangaben.</p>
   </div>
@@ -438,6 +439,21 @@ $("btnSample").addEventListener("click", () => {
 
 $("dlXml").addEventListener("click", () => download("sepa-lastschrift.xml", lastXml, "application/xml"));
 $("dlPrenote").addEventListener("click", () => download("prenotification.txt", lastPrenote, "text/plain"));
+$("dlPrint").addEventListener("click", () => {
+  if (!lastPrenote) return;
+  const esc = (t) => t.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+  const w = window.open("", "_blank");
+  if (!w) return;
+  w.document.write(`<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><title>SEPA-Ankündigung</title>` +
+    `<style>body{font-family:system-ui,-apple-system,sans-serif;color:#0f172a;padding:24px;line-height:1.5}` +
+    `.blk{white-space:pre-wrap;max-width:680px;margin:0 auto;page-break-after:always}` +
+    `@media print{body{padding:0}@page{size:A4;margin:18mm}}</style></head><body>` +
+    esc(lastPrenote).split(/-{20,}/).map((s) => `<div class="blk">${s.trim()}</div>`).join("") +
+    `<\/body><\/html>`);
+  w.document.close();
+  w.focus();
+  setTimeout(() => w.print(), 300);
+});
 
 function renderAbgleich(rows) {
   const st = summarize(rows);
