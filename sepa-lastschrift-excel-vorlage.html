@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEPA-Lastschrift Excel-Vorlage (Manager) – kostenlos</title>
+<meta name="description" content="SEPA-Lastschrift für Vereine mit Excel vorbereiten: Spalten, Vorlage zum Download und automatische Umwandlung in die pain.008-Datei.">
+<link rel="canonical" href="https://vanitas50.github.io/sepa-verein/sepa-lastschrift-excel-vorlage.html">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SEPA-Lastschrift Excel-Vorlage (Manager)">
+<meta property="og:description" content="Vorbereitung in Excel, Umwandlung in pain.008 automatisch.">
+<meta property="og:url" content="https://vanitas50.github.io/sepa-verein/sepa-lastschrift-excel-vorlage.html">
+<meta property="og:image" content="https://vanitas50.github.io/sepa-verein/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root { --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --brand:#0d6efd; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; color:var(--ink); background:#f1f5f9; line-height:1.65; }
+  header { background:#0f172a; color:#fff; padding:28px 20px; } .wrap { max-width:760px; margin:0 auto; }
+  header a { color:#93c5fd; text-decoration:none; font-size:.9rem; }
+  main { padding:28px 20px 60px; } article { background:#fff; border:1px solid var(--line); border-radius:14px; padding:28px; }
+  h1 { font-size:1.6rem; margin:.2rem 0 1rem; } h2 { font-size:1.13rem; margin:1.7rem 0 .4rem; }
+  table { width:100%; border-collapse:collapse; font-size:.88rem; } th,td { text-align:left; padding:7px 8px; border-bottom:1px solid var(--line); }
+  .cta { display:block; background:var(--brand); color:#fff; text-align:center; padding:14px; border-radius:10px; text-decoration:none; font-weight:600; margin:26px 0 6px; }
+  .muted { color:var(--muted); font-size:.85rem; }
+</style>
+</head>
+<body>
+<header><div class="wrap"><a href="./index.html">← SEPA-Rechner für Vereine</a></div></header>
+<main class="wrap">
+<article>
+  <h1>SEPA-Lastschrift mit Excel vorbereiten</h1>
+  <p>Sie können den Beitragseinzug komplett in Excel vorbereiten – die Umwandlung in die bankfähige XML-Datei übernimmt ein kostenloses Werkzeug.</p>
+
+  <h2>So sehen die Spalten aus</h2>
+  <table>
+    <tr><th>Spalte</th><th>Beispiel</th></tr>
+    <tr><td>Name (oder Vorname/Nachname)</td><td>Anna Müller</td></tr>
+    <tr><td>IBAN</td><td>DE89…</td></tr>
+    <tr><td>BIC (optional)</td><td>GENODEF1XXX</td></tr>
+    <tr><td>Beitrag</td><td>120,00</td></tr>
+    <tr><td>Mandatsreferenz</td><td>M-1001</td></tr>
+    <tr><td>Mandatsdatum</td><td>01.02.2019</td></tr>
+    <tr><td>Verwendungszweck</td><td>Mitgliedsbeitrag 2026</td></tr>
+    <tr><td>Erstmalig</td><td>ja</td></tr>
+  </table>
+
+  <h2>Vorlage &amp; Umwandlung</h2>
+  <p>Laden Sie die <a href="./vorlagen/mitglieder-vorlage.csv">CSV-Vorlage</a> (oder die <a href="./vorlagen/mitgliederliste.html">ausführliche Anleitung</a>). Anschließend die Liste in den <a href="./index.html">SEPA-Rechner</a> laden – er prüft IBAN und Mandate und erzeugt die pain.008-Datei.</p>
+
+  <h2>Häufige Frage</h2>
+  <p><b>Muss ich die XML-Datei selbst bauen?</b> Nein, das übernimmt das Werkzeug aus Ihrer Excel/CSV-Liste.</p>
+
+  <a class="cta" href="./index.html">Excel/CSV hochladen → SEPA-Datei erzeugen →</a>
+  <p class="muted">Weiterlesen: <a href="./sepa-validieren.html">SEPA-Datei prüfen</a> · <a href="./sepa-lastschrift-fehler.html">Häufige Fehler</a> · <a href="./datenschutz.html">Datenschutz</a></p>
+</article>
+</main>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+ {"@type":"Question","name":"Kann ich SEPA-Lastschriften aus Excel erstellen?","acceptedAnswer":{"@type":"Answer","text":"Ja. Sie pflegen die Mitglieder in Excel/CSV und ein kostenloses Werkzeug erzeugt daraus die pain.008-Datei für die Bank."}}
+]}
+</script>
+</body>
+</html>

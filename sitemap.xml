@@ -230,6 +230,9 @@
   <url><loc>https://vanitas50.github.io/sepa-verein/vereinsregister.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
   <url><loc>https://vanitas50.github.io/sepa-verein/sepa-lastschrift-gesangsverein.html</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
   <url><loc>https://vanitas50.github.io/sepa-verein/sepa-lastschrift-kulturverein.html</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://vanitas50.github.io/sepa-verein/sepa-lastschrift-excel-vorlage.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vanitas50.github.io/sepa-verein/sepa-lastschrift-fehler.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vanitas50.github.io/sepa-verein/mandat-neue-bankverbindung.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
   <url>
     <loc>https://vanitas50.github.io/sepa-verein/datenschutz.html</loc>
     <changefreq>yearly</changefreq>
