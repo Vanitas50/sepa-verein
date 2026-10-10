@@ -122,6 +122,15 @@ function parseSheet(xml, shared) {
   return matrix.slice(0, last);
 }
 
+function sheetScore(matrix) {
+  if (!matrix || !matrix.length) return 0;
+  const header = String(matrix[0].join(" ")).toLowerCase();
+  let score = matrix.length;
+  if (/iban/.test(header)) score += 100000;
+  if (/beitrag|betrag|mandat/.test(header)) score += 1000;
+  return score;
+}
+
 export async function parseXlsx(input) {
   const bytes = input instanceof Uint8Array ? input : new Uint8Array(input);
   const dv = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
@@ -131,12 +140,17 @@ export async function parseXlsx(input) {
   const sharedXml = await read("xl/sharedStrings.xml");
   const shared = sharedXml ? parseSharedStrings(sharedXml) : [];
 
-  let sheetName = "xl/worksheets/sheet1.xml";
-  if (!files[sheetName]) {
-    sheetName = Object.keys(files).find((n) => /^xl\/worksheets\/sheet\d+\.xml$/.test(n));
+  let sheetNames = Object.keys(files).filter((n) => /^xl\/worksheets\/sheet\d+\.xml$/.test(n)).sort();
+  if (!sheetNames.length) throw new Error("Keine Tabelle in der .xlsx-Datei gefunden.");
+
+  let best = null, bestScore = -1, bestName = sheetNames[0];
+  for (const name of sheetNames) {
+    const xml = await read(name);
+    if (!xml) continue;
+    const matrix = parseSheet(xml, shared);
+    const score = sheetScore(matrix);
+    if (score > bestScore) { bestScore = score; best = matrix; bestName = name; }
   }
-  if (!sheetName) throw new Error("Keine Tabelle in der .xlsx-Datei gefunden.");
-  const sheetXml = await read(sheetName);
-  if (!sheetXml) throw new Error("Tabelle konnte nicht gelesen werden.");
-  return { matrix: parseSheet(sheetXml, shared), sheet: sheetName };
+  if (!best) throw new Error("Tabelle konnte nicht gelesen werden.");
+  return { matrix: best, sheet: bestName };
 }

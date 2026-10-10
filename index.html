@@ -190,6 +190,7 @@
     <h2>Kontenabgleich <span class="badge ok">Pro</span></h2>
     <p class="muted">Kontoauszug aus dem Online-Banking laden (<span class="pill">CAMT.053</span>-XML oder <span class="pill">MT940</span>) – wir zeigen je Mitglied, wer bezahlt hat und wer offen ist. Zuerst oben die Mitgliederliste einlesen.</p>
     <input id="camtFile" type="file" accept=".xml,.sta,.mt940,.940,.txt,text/xml,text/plain" style="max-width:340px">
+    <button class="ghost" id="btnDemoCamt" type="button" style="margin-left:8px">Demo-Kontoauszug laden</button>
     <div id="abgleichResult" style="margin-top:14px"></div>
   </div>
 
@@ -246,6 +247,7 @@
       <li><a href="./sepa-lastschrift-schachverein.html">Schachverein</a> · <a href="./sepa-lastschrift-heimatverein.html">Heimatverein</a> · <a href="./sepa-lastschrift-gesangsverein.html">Gesangsverein</a> · <a href="./sepa-lastschrift-kulturverein.html">Kulturverein</a></li>
       <li><a href="./umsatzsteuer-verein.html">Umsatzsteuer im Verein</a> · <a href="./vereinsregister.html">Vereinsregister</a></li>
       <li><a href="./sepa-lastschrift-excel-vorlage.html">SEPA mit Excel</a> · <a href="./sepa-lastschrift-fehler.html">Häufige Fehler</a> · <a href="./mandat-neue-bankverbindung.html">Neue Bankverbindung</a></li>
+      <li><a href="./kassenwart-aufgaben.html">Kassenwart-Aufgaben</a> · <a href="./elektronisches-mandat.html">Elektronisches Mandat</a> · <a href="./sepa-lastschrift-kleingewerbe.html">Kleingewerbe</a></li>
       <li><a href="./vorlagen/mandat.html">Vorlage: SEPA-Lastschriftmandat</a></li>
     </ul>
   </div>
@@ -307,6 +309,12 @@ let lastXml = "", lastPrenote = "";
 let xlsxRows = null;
 let lastMembers = [];
 let lastConfig = null;
+const DEMO_CAMT = `<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.053.001.08"><BkToCstmrStmt><Stmt>
+<Ntry><Amt Ccy="EUR">120.00</Amt><CdtDbtInd>CRDT</CdtDbtInd><BookgDt><Dt>2026-11-16</Dt></BookgDt><NtryDtls><TxDtls><Refs><MndtId>M-1001</MndtId></Refs><RltdPties><Dbtr><Nm>Anna Müller</Nm></Dbtr></RltdPties><RmtInf><Ustrd>Mitgliedsbeitrag 2026 M-1001</Ustrd></RmtInf></TxDtls></NtryDtls></Ntry>
+<Ntry><Amt Ccy="EUR">90.00</Amt><CdtDbtInd>CRDT</CdtDbtInd><BookgDt><Dt>2026-11-16</Dt></BookgDt><NtryDtls><TxDtls><RltdPties><Dbtr><Nm>Schmidt, Ben</Nm></Dbtr></RltdPties><RmtInf><Ustrd>Beitrag</Ustrd></RmtInf></TxDtls></NtryDtls></Ntry>
+<Ntry><Amt Ccy="EUR">120.00</Amt><CdtDbtInd>CRDT</CdtDbtInd><BookgDt><Dt>2026-11-16</Dt></BookgDt><NtryDtls><TxDtls><Refs><MndtId>M-1005</MndtId></Refs><RltdPties><Dbtr><Nm>Lena Kowalski</Nm></Dbtr></RltdPties><RmtInf><Ustrd>Mitgliedsbeitrag 2026</Ustrd></RmtInf></TxDtls></NtryDtls></Ntry>
+</Stmt></BkToCstmrStmt></Document>`;
 
 function download(name, text, mime) {
   const blob = new Blob([text], { type: mime });
@@ -494,6 +502,11 @@ function renderAbgleich(rows) {
     download("zahlungserinnerungen.txt", txt, "text/plain");
   });
 }
+
+$("btnDemoCamt").addEventListener("click", () => {
+  if (!lastMembers.length) { $("btnSample").click(); run(); }
+  renderAbgleich(reconcile(lastMembers, parseStatement(DEMO_CAMT)));
+});
 
 $("camtFile").addEventListener("change", async (e) => {
   const f = e.target.files[0];
